@@ -45,6 +45,7 @@ TODO:
 
 	Build/production system       :  A system for cleaning and backing up files (including log files).
 	Dependency Injection					:  Configuration should be separate from implementation.
+	Batch Export                  :  To avoid straining the DB, this should be done in batches
 	Modularity          					:  The databse implementation should be separate from the API code and be accessed in global or static way.
 	Asynchronous IO     					:  The database should have a thread pool and support asynchronous lookups and updates.
 	Logging             					:  Logging should simplify bug-hunting and a logging framework with log-levels should be used. 

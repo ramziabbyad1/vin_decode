@@ -73,13 +73,15 @@ async def lookup_vin(vin: Annotated[
     cached_vin = session.get(VIN, vin)
     
     if cached_vin:
+        #print(f'Cached vPIC record: {cached_vin}')
         return VINResponse(**cached_vin.__dict__, cached_result=True)
     else:
         # Call vPIC API and fetch VIN details
         try:
             vin_details    = await __fetch_vin_details(vin)
+            #print(f'vPIC returned: {vin_details}')
             table_details  = __extract_table_fields(vin, vin_details)
-            print(table_details)
+            #print(f'Truncated vPIC Record: {table_details}')
             
             # Create a new VIN record in the cache
             new_vin = VIN(**table_details)
@@ -111,6 +113,7 @@ async def remove_vin(vin: Annotated[
         return RemoveResponse(vin=vin, cache_delete_success=True)
     else:
         #raise HTTPException(status_code=404, detail="VIN not found in cache")
+        #print(f'User tried to remove uncached record: {vin}')
         return RemoveResponse(vin=vin, cache_delete_success=False)
 
 
