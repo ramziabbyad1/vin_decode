@@ -55,7 +55,7 @@ There are three functions that can be accessed using this program.
 																	 class. This should be dealt with in a standardized way by consumers of the API.
 
 
-
+## Testing
 
 You can test the implmentation as follows, lookup is run twice to ensure the cache FLAG is set:
 ``` 
