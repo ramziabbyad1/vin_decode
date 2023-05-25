@@ -1,4 +1,4 @@
-#VIN DECODER
+# VIN DECODER
 
 This program uses python 3.8.11, but is probably compatibile with version >= 3.6. 
 
@@ -25,7 +25,7 @@ To view the results of cache /export, run:
 	$ python display_cache.py 
 ```
 
-##API Description:
+## API Description:
 
 This is a program that uses SQLAlchemy, and FastAPI to implement a VIN decoding information system.
 
@@ -43,7 +43,7 @@ There are three functions that can be accessed using this program.
 	
 >Export the cached data to a parquet file and return a Response object. You can view the cached records using display cache, as mentioned above.
 
-##TODO:
+## TODO:
 
 1. Build/production system      :  A system for cleaning and backing up files (including log files).
 2. Dependency Injection					:  Configuration should be separate from implementation.
@@ -59,33 +59,33 @@ There are three functions that can be accessed using this program.
 
 You can test the implmentation as follows, lookup is run twice to ensure the cache FLAG is set:
 ``` 
-	curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XPWD40X1ED215307
-	curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XKWDB0X57J211825
-	curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7YN526158
-	curl -w "\n" http://127.0.0.1:8000/lookup?vin=4V4NC9EJXEN171694
-	curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7XD487964
-	curl -w "\n" http://127.0.0.1:8000/lookup?vin=ZA9CA05AXJLA12340
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XPWD40X1ED215307
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XKWDB0X57J211825
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7YN526158
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=4V4NC9EJXEN171694
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7XD487964
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=ZA9CA05AXJLA12340
 
-  curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XPWD40X1ED215307
-  curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XKWDB0X57J211825
-  curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7YN526158
-  curl -w "\n" http://127.0.0.1:8000/lookup?vin=4V4NC9EJXEN171694
-  curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7XD487964
-  curl -w "\n" http://127.0.0.1:8000/lookup?vin=ZA9CA05AXJLA12340	
-	
-	curl -sw "\n" http://127.0.0.1:8000/export
-	python display_cache.py
-	
-	curl -w "\n" http://127.0.0.1:8000/remove?vin=1XPWD40X1ED215307
-	curl -w "\n" http://127.0.0.1:8000/remove?vin=1XKWDB0X57J211825
-	curl -w "\n" http://127.0.0.1:8000/remove?vin=1XP5DB9X7YN526158
-	curl -w "\n" http://127.0.0.1:8000/remove?vin=4V4NC9EJXEN171694
-	curl -w "\n" http://127.0.0.1:8000/remove?vin=1XP5DB9X7XD487964
-	curl -w "\n" http://127.0.0.1:8000/remove?vin=ZA9CA05AXJLA12340
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XPWD40X1ED215307
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XKWDB0X57J211825
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7YN526158
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=4V4NC9EJXEN171694
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=1XP5DB9X7XD487964
+curl -w "\n" http://127.0.0.1:8000/lookup?vin=ZA9CA05AXJLA12340	
+
+curl -sw "\n" http://127.0.0.1:8000/export
+python display_cache.py
+
+curl -w "\n" http://127.0.0.1:8000/remove?vin=1XPWD40X1ED215307
+curl -w "\n" http://127.0.0.1:8000/remove?vin=1XKWDB0X57J211825
+curl -w "\n" http://127.0.0.1:8000/remove?vin=1XP5DB9X7YN526158
+curl -w "\n" http://127.0.0.1:8000/remove?vin=4V4NC9EJXEN171694
+curl -w "\n" http://127.0.0.1:8000/remove?vin=1XP5DB9X7XD487964
+curl -w "\n" http://127.0.0.1:8000/remove?vin=ZA9CA05AXJLA12340
 
 
-	curl -sw "\n" http://127.0.0.1:8000/export
-	python display_cache.py
+curl -sw "\n" http://127.0.0.1:8000/export
+python display_cache.py
 
 ```
 
