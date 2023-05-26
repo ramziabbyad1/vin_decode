@@ -40,7 +40,6 @@ def test_remove_vin(test_vin):
 def test_export_cache():
     response = client.get("/export")
     assert response.status_code == 200
-    # Add additional assertions for the exported file if needed
 
 
 if __name__ == "__main__":

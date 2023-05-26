@@ -12,6 +12,9 @@ from fastapi.responses import FileResponse
 from typing_extensions import Annotated
 import httpx
 
+import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 
 # Database Configuration
 DATABASE_URL = "sqlite:///./cache.db?check_same_thread=False"
@@ -123,13 +126,12 @@ async def export_cache():
     session = SessionLocal()
     query = session.query(VIN)
     cached_vins = __extract_rows_from_objects(query.all())
+
+
     
     # Export rows to a Parquet file
     # You'll need to install the 'pyarrow' package for this
     
-    import pandas as pd
-    import pyarrow as pa
-    import pyarrow.parquet as pq
 
     df = pd.DataFrame(cached_vins, columns=["vin", "make", "model", "model_year", "body_class"])
     table = pa.Table.from_pandas(df)

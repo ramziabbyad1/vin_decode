@@ -45,7 +45,8 @@ There are three functions that can be accessed using this program.
 
 ## TODO:
 
-1. Build/production system      :  A system for cleaning and backing up files (including log files).
+1. Build/production system      :  A system for cleaning and backing up files (including log files).  Note, the cache needs to be initialized
+on StartUp
 2. Dependency Injection					:  Configuration should be separate from implementation.
 3. Batch Export                 :  To avoid straining the DB, this should be done in batches
 4. Modularity          					:  The databse implementation should be separate from the API code and be accessed in global or static way.
